@@ -1,28 +1,31 @@
-let who = ["El perro", "Mi abuela", "Mi tortuga", "Mi canario", "Mi gato"];
-let what = ["se comió", "aplastó", "robó", "rompió", "ensució"];
+let who = ["The dog", "My grandma", "His turtle", "My bird"];
+let action = ["ate", "peed", "crushed", "broke"];
+let what = ["my homework", "the keys", "the car"];
 let when = [
-  "antes de clases",
-  "justo cuando terminé",
-  "mientras almorzaba",
-  "mientras yo rezaba"
+  "before the class",
+  "right on time",
+  "when I finished",
+  "during my lunch",
+  "while I was praying"
 ];
 
-function excuseGenerator(qui, que, cuand) {
+function excuseGenerator(qui, act, que, cuand) {
   numQuien = Math.floor(Math.random() * qui.length);
+  numAct = Math.floor(Math.random() * act.length);
   numQue = Math.floor(Math.random() * que.length);
   numCuando = Math.floor(Math.random() * cuand.length);
   return (
     qui[numQuien] +
     " " +
-    que[numQue] +
+    act[numAct] +
     " " +
-    "mi tarea" +
+    que[numQue] +
     " " +
     cuand[numCuando]
   );
 }
 function onLoad() {
   var excusa = document.getElementById("excuse");
-  excusa.innerHTML = excuseGenerator(who, what, when);
+  excusa.innerHTML = excuseGenerator(who, action, what, when);
 }
 window.onload = onLoad;
